@@ -4,6 +4,7 @@ function addImage(file) {
   console.log('add file to dom');
   $images = document.getElementById('images');
   $image = document.createElement('img')
+  $image.className = 'image-grid__item'
 
   $image.src = "data:image/jpeg;base64," + file;
   $images.appendChild($image);

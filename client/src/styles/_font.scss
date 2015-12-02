@@ -1,0 +1,30 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,900);
+
+h1 {
+  font-size: $fs-xl;
+  font-weight: $fw-bold;
+}
+
+h2 {
+  font-size: $fs-l;
+}
+
+h3 {
+  font-size: $fs-m;
+}
+
+html, body {
+  font-family: $f-normal;
+  font-weight: $fw-normal;
+  color: $c-black;
+  font-size: 100%;
+  line-height: 1.7;
+}
+
+p {
+  font-size: $fs-m;
+}
+
+a {
+  font-size: $fs-m;
+}

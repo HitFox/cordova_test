@@ -1,0 +1,52 @@
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 50px;
+  box-shadow: 1px 0 5px 1px fade-out($c-black, .5);
+  padding: 0 15px;
+  z-index: $z-top;
+  background-color: $c-white;
+}
+
+.topbar__title {
+  line-height: 50px;
+  color: $c-grey;
+  display: inline-block;
+  padding: 0 15px;
+
+  .icon-cordova {
+    color: $c-black;
+    height: 50px;
+  }
+
+  .icon-hitfox {
+    color: $c-orange;
+    height: 50px;
+  }
+
+  .topbar__title--seperator {
+    margin: 0  15px;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+.topbar__button {
+  border: none;
+  position: absolute;
+  background-color: $c-orange;
+  cursor: pointer;
+  height: 40px;
+  top: 5px;
+  right: 15px;
+  color: $c-white;
+  transition: color .3s ease, background-color .3s ease;
+  outline: none;
+
+  &:hover {
+    color: $c-orange;
+    background-color: transparent;
+  }
+}

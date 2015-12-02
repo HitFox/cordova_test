@@ -1,0 +1,14 @@
+.image-grid {
+  padding: 75px 15px 25px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.image-grid__item {
+  width: 125px;
+  height: 125px;
+  margin: 10px;
+  object-fit: cover;
+}

@@ -1,3 +1,7 @@
+mixin icon(name)
+  svg(class="icon-" + name)
+    use(xlink:href="#icon-" + name)
+
 doctype html
 html(lang="en")
   head
@@ -10,9 +14,15 @@ html(lang="en")
     title Cordova Test App
 
   body
-    h1 Cordova Test App
-    button#upload(type="submit") Upload
-    section#images
-        
+    header.topbar
+      h1.topbar__title
+        +icon('cordova')
+        span.topbar__title--seperator &
+        +icon('hitfox')
+      button.topbar__button#upload(type="submit")
+        +icon('camera')
+    section.image-grid#images
+    
+    include assets/icons.svg
     script(type="text/javascript" src="cordova.js")
     script(type="text/javascript" src="js/app.js")
