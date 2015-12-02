@@ -9,6 +9,9 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.hitfoxgroup.com"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.hitfoxgroup.com"
         }
     },
     "dependent_plugins": {}
