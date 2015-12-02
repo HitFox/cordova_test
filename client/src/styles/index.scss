@@ -1,4 +1,12 @@
-body {
+#images {
   display: flex;
-  background-color: white; 
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  > img {
+    flex-basis: 250px;
+    width: 250px;
+    height: 100%;
+    margin-bottom: 25px;
+  }
 }

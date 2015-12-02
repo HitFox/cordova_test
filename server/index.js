@@ -1,35 +1,17 @@
 var http = require('http');
-var fs = require('fs');
-var uploadPath = __dirname + '/uploads/'
+var socket = require(__dirname + '/socket')
 
 function server(req, res) {
-  var data = '';
+  console.log('got request', req.method, req.headers.origin);
 
-  console.log('got request', req.method);
-
-  req.on('data', function(chunk) {
-    data += chunk.toString();
-  });
-
-  req.on('end', function() {
-    try {
-      var body = JSON.parse(data);
-      var name = uploadPath + new Date() + '.jpeg'
-      var image = new Buffer(body.image, 'base64')
-
-      fs.writeFile(name, image, function(error) {
-        if(error) throw error;
-
-        console.log('wrote file', name);
-      });
-    } catch (e) {
-      console.log('error', e);
-    } finally {
-      res.end()
-    }
-  });
+  // NOTE: Only for demo purposes allow any origin
+  res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.end();
 }
 
-http.createServer(server).listen(9000, function() {
+app = http.createServer(server).listen(9000, function() {
   console.log('started at 9000');
 });
+
+socket(app)
