@@ -1,0 +1,35 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "client for cordova test",
+  "config": {
+    "src": "src",
+    "dest": "www",
+    "bin": "./node_modules/.bin"
+  },
+  "scripts": {
+    "build:cordova": "$npm_package_config_bin/cordova build --release",
+    "build:basics": "mkdir -p $npm_package_config_dest/css & mkdir -p $npm_package_config_dest/js & mkdir -p $npm_package_config_dest/assets",
+    "build:assets": "cp -R $npm_package_config_src/assets $npm_package_config_dest/ ",
+    "build:template": "$npm_package_config_bin/jade --out $npm_package_config_dest $npm_package_config_src/index.jade",
+    "build:scripts": "$npm_package_config_bin/browserify $npm_package_config_src/scripts/index.js > $npm_package_config_dest/js/app.js",
+    "build:styles": "$npm_package_config_bin/node-sass $npm_package_config_src/styles/index.scss | $npm_package_config_bin/postcss --use autoprefixer > $npm_package_config_dest/css/app.css",
+    "build": "npm run build:basics && (npm run build:scripts & npm run build:styles & npm run build:template & npm run build:assets)",
+    "watch:assets": "DEBUG=onchange $npm_package_config_bin/onchange $npm_package_config_src/assets/**/*.* -- npm run build:assets",
+    "watch:templates": "DEBUG=onchange $npm_package_config_bin/onchange $npm_package_config_src/**/*.jade -- npm run build:template",
+    "watch:scripts": "DEBUG=onchange $npm_package_config_bin/onchange $npm_package_config_src/scripts/**/*.js -- npm run build:scripts",
+    "watch:styles": "DEBUG=onchange $npm_package_config_bin/onchange $npm_package_config_src/styles/**/*.scss -- npm run build:styles",
+    "watch": "npm run build && (npm run watch:scripts & npm run watch:styles & npm run watch:templates & npm run watch:assets)"
+  },
+  "author": "Patrick Müller (patrick.mueller@hitfoxgroup.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^6.1.2",
+    "browserify": "^12.0.1",
+    "cordova": "^5.4.1",
+    "jade": "^1.11.0",
+    "node-sass": "^3.4.2",
+    "onchange": "^1.1.0",
+    "postcss-cli": "^2.3.2"
+  }
+}

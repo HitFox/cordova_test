@@ -1,0 +1,9 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server for cordova test",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Patrick Müller (patrick.mueller@hitfoxgroup.com)",
+  "license": "MIT"
+}
