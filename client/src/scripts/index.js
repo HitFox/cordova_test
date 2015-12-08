@@ -12,6 +12,7 @@ function addImage(file) {
 
 function onReady() {
   console.log('ready');
+  # TODO: make dynamic or change to your server address
   var socket = io('http://172.18.50.50:9000');
 
   socket.on('files:all', function(files) {
